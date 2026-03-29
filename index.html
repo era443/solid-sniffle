@@ -2,203 +2,232 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Sangitaba!</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-    
+    <!-- Google Fonts for Elegance -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --accent-color: #ffd700;
+            --bg-gradient: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            --text-dark: #2d3436;
+        }
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent; /* Removes blue tap highlight on mobile */
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(-45deg, #ff758c, #ff7eb3, #a29bfe, #fd79a8);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background: var(--bg-gradient);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             overflow-x: hidden;
-            color: #fff;
-            padding: 20px;
         }
 
-        /* Smooth animated background */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Glassmorphism Mobile Card */
-        .mobile-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 35px;
-            padding: 40px 25px;
-            width: 100%;
-            max-width: 400px;
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            animation: fadeIn 1.5s ease-out;
+            position: relative;
+            z-index: 1;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Decorative Elements */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary-color);
+            position: absolute;
+            top: -10px;
+            animation: fall 3s linear infinite;
         }
 
+        /* Heading Style */
         h1 {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            color: #fff;
+            font-size: 4.5rem;
+            color: #d63031;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInDown 1.5s ease;
         }
 
         h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 25px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Modern Image Styling */
-        .image-container {
-            position: relative;
-            margin: 0 auto 25px auto;
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            padding: 8px;
-            background: linear-gradient(45deg, #fff, #ffeaa7, #fff);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            background-color: #fff;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        p.message {
-            font-size: 1rem;
-            line-height: 1.6;
-            font-weight: 300;
+            color: #636e72;
             margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.95);
         }
 
-        /* Mobile-friendly Tap Button */
-        .celebrate-btn {
-            background: #fff;
-            color: #ff758c;
-            border: none;
-            padding: 15px 35px;
+        /* Image Styling */
+        .image-frame {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 10px solid white;
+            animation: zoomIn 1.2s ease;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Message Box */
+        .message {
             font-size: 1.1rem;
-            font-weight: 700;
-            border-radius: 30px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            line-height: 1.8;
+            color: #4b4b4b;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* Button/Interactive */
+        .wish-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5253);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
             cursor: pointer;
-            font-family: 'Montserrat', sans-serif;
+            transition: 0.3s transform ease, 0.3s box-shadow ease;
+            box-shadow: 0 10px 20px rgba(238, 82, 83, 0.3);
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .celebrate-btn:active {
-            transform: scale(0.95);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        .wish-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(238, 82, 83, 0.4);
         }
 
-        /* Confetti canvas */
-        #confetti-canvas {
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        /* Floating Hearts Background */
+        .background-decoration {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1000;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(214, 48, 49, 0.1);
+            font-size: 2rem;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(20deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 3rem; }
+            .container { padding: 20px; }
+            h2 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="confetti-canvas"></canvas>
-
-    <div class="mobile-card">
-        <h1>Happy</h1>
-        <h2>Birthday</h2>
-        
-        <div class="image-container">
-            <img src="img.jpg" alt="Sangitaba">
-        </div>
-
-        <p class="message">
-            Wishing you, <b>Sangitaba</b>, a beautiful day full of laughter, love, and sweet memories. May this year be your best one yet!
-        </p>
-
-        <button class="celebrate-btn" onclick="fireConfetti()">Tap for Magic ✨</button>
+    <div class="background-decoration" id="bgDecor">
+        <!-- Hearts will be added by JS -->
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <div class="container">
+        <h1>Happy Birthday</h1>
+        <h2>Sangitaba</h2>
+
+        <div class="image-frame">
+            <!-- Using your specified image -->
+            <img src="img.jpg" alt="Sangitaba's Birthday Image">
+        </div>
+
+        <div class="message">
+            <p>"May your day be as beautiful, bright, and wonderful as you are. <br>
+            Sending you love, joy, and infinite happiness on your special day!"</p>
+        </div>
+
+        <button class="wish-btn" onclick="celebrate()">Click to Celebrate! ✨</button>
+    </div>
+
+    <!-- JS for some interactivity -->
     <script>
-        // Fun, interactive confetti burst attached to the button
-        function fireConfetti() {
-            var count = 200;
-            var defaults = {
-                origin: { y: 0.7 },
-                zIndex: 1001
-            };
-
-            function fire(particleRatio, opts) {
-                confetti(Object.assign({}, defaults, opts, {
-                    particleCount: Math.floor(count * particleRatio)
-                }));
-            }
-
-            fire(0.25, { spread: 26, startVelocity: 55 });
-            fire(0.2, { spread: 60 });
-            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
-            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
-            fire(0.1, { spread: 120, startVelocity: 45 });
-            
-            // Provide a tiny vibration on mobile devices if supported
-            if (navigator.vibrate) {
-                navigator.vibrate(50);
-            }
+        // Create floating hearts
+        const decor = document.getElementById('bgDecor');
+        for(let i=0; i<15; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            decor.appendChild(heart);
         }
-        
-        // Shoot a small burst on initial load too!
-        window.onload = function() {
-            setTimeout(function() {
-                confetti({
-                    particleCount: 100,
-                    spread: 70,
-                    origin: { y: 0.6 }
-                });
-            }, 500);
-        };
+
+        function celebrate() {
+            // Add extra confetti effect
+            for(let i=0; i<50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = ['#ff6b6b', '#ffd700', '#4834d4', '#6ab04c'][Math.floor(Math.random()*4)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.animationDuration = Math.random() * 2 + 1 + 's';
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => confetti.remove(), 3000);
+            }
+            alert("Wishing you the happiest of birthdays, Sangitaba! 🎂✨");
+        }
     </script>
 </body>
 </html>
